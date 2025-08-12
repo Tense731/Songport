@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Music - Segun Abon</title>
+  <link rel="stylesheet" href="music.css" />
+  <script src="https://js.paystack.co/v1/inline.js"></script>
+
+  <style>
+    audio {
+      display: none;
+    }
+    .music-item input[type="email"] {
+      display: block;
+      width: 100%;
+      max-width: 300px;
+      margin: 10px 0;
+      padding: 10px;
+      font-size: 16px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+    }
+    .custom-controls button {
+      padding: 8px 16px;
+      margin-right: 8px;
+      background-color: #009688;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    .custom-controls button:hover {
+      background-color: #00796b;
+    }
+    .buy-btn {
+      margin-top: 10px;
+      padding: 10px 16px;
+      background-color: #673ab7;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    .buy-btn:hover {
+      background-color: #512da8;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="page-wrapper">
+    <header class="header">
+      <div class="logo">Segun Abon</div>
+      <nav>
+        <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+        <ul id="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="music.html" class="active">Music Store</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <section class="banner">
+      <div class="banner-text">
+        <h1>Experience the Sound of Heaven</h1>
+        <p>Let Segun Abon's music lift your soul and draw you closer to God.</p>
+      </div>
+    </section>
+
+    <section class="intro">
+      <h2>Welcome to the Music Store</h2>
+      <p>Segun Abon's songs are rich in spirit, sound, and scriptural truth. Browse through the tracks below, support the ministry, and enjoy access to downloadable gospel music after purchase.</p>
+    </section>
+
+    <main class="music-section">
+      <div class="music-list">
+        <!-- Song 1 -->
+        <div class="music-item animate">
+          <img src="images/salvation.webp" alt="Salvation">
+          <h3>Salvation by Segun Abon</h3>
+          <audio id="audio1">
+            <source src="musics/Salvation.mp3" type="audio/mpeg">
+          </audio>
+          <div class="custom-controls">
+            <button onclick="playPreview('audio1')">▶ Play</button>
+            <button onclick="pauseAudio('audio1')">⏸ Pause</button>
+          </div>
+          <input type="email" id="email1" placeholder="Enter your email" required />
+          <button class="buy-btn" onclick="payWithPaystack1()">Buy & Download</button>
+        </div>
+
+        <!-- Song 2 -->
+        <div class="music-item animate">
+          <img src="images/mercy.webp" alt="Thy Mercy">
+          <h3>Thy Mercy by Segun Abon</h3>
+          <audio id="audio2">
+            <source src="musics/Thy Mercy.mp3" type="audio/mpeg">
+          </audio>
+          <div class="custom-controls">
+            <button onclick="playPreview('audio2')">▶ Play</button>
+            <button onclick="pauseAudio('audio2')">⏸ Pause</button>
+          </div>
+          <input type="email" id="email2" placeholder="Enter your email" required />
+          <button class="buy-btn" onclick="payWithPaystack2()">Buy & Download</button>
+        </div>
+
+        <!-- Song 3 -->
+        <div class="music-item animate">
+          <img src="images/grace.webp" alt="Agbara">
+          <h3>Agbara by Segun Abon</h3>
+          <audio id="audio3">
+            <source src="musics/Thy Grace.mp3" type="audio/mpeg">
+          </audio>
+          <div class="custom-controls">
+            <button onclick="playPreview('audio3')">▶ Play</button>
+            <button onclick="pauseAudio('audio3')">⏸ Pause</button>
+          </div>
+          <input type="email" id="email3" placeholder="Enter your email" required />
+          <button class="buy-btn" onclick="payWithPaystack3()">Buy & Download</button>
+        </div>
+   <!-- Song 4 -->
+        <div class="music-item animate">
+          <img src="images/god.webp" alt="Agbara">
+          <h3>Aditu Onise Nla by Segun Abon</h3>
+          <audio id="audio4">
+            <source src="musics/Aditu Onise Nla.mp3" type="audio/mpeg">
+          </audio>
+          <div class="custom-controls">
+            <button onclick="playPreview('audio4')">▶ Play</button>
+            <button onclick="pauseAudio('audio4')">⏸ Pause</button>
+          </div>
+          <input type="email" id="email3" placeholder="Enter your email" required />
+          <button class="buy-btn" onclick="payWithPaystack4()">Buy & Download</button>
+        </div>
+
+        <!-- Song 5 -->
+        <div class="music-item animate">
+          <img src="images/new.webp" alt="Mo Fi Ogo">
+          <h3>Mo Fi Ogo by Segun Abon</h3>
+          <audio id="audio5">
+            <source src="musics/Mo Fi Ogo.mp3" type="audio/mpeg">
+          </audio>
+          <div class="custom-controls">
+            <button onclick="playPreview('audio5')">▶ Play</button>
+            <button onclick="pauseAudio('audio5')">⏸ Pause</button>
+          </div>
+          <input type="email" id="email4" placeholder="Enter your email" required />
+          <button class="buy-btn" onclick="payWithPaystack5()">Buy & Download</button>
+        </div>
+
+         <!-- Song 6 -->
+        <div class="music-item animate">
+          <img src="images/segun live.jpg" alt="Mo Fi Ogo">
+          <h3>Segun Abon Live On Stage</h3>
+          <audio id="audio6">
+            <source src="musics/ABON 2024.mp3" type="audio/mpeg">
+          </audio>
+          <div class="custom-controls">
+            <button onclick="playPreview('audio6')">▶ Play</button>
+            <button onclick="pauseAudio('audio6')">⏸ Pause</button>
+          </div>
+          <input type="email" id="email4" placeholder="Enter your email" required />
+          <button class="buy-btn" onclick="payWithPaystack6()">Buy & Download</button>
+        </div>
+
+  <!-- Song 7 -->
+        <div class="music-item animate">
+          <img src="images/new.webp" alt="Mo Fi Ogo">
+          <h3>Igi Igbo By Segun Abon</h3>
+          <audio id="audio7">
+            <source src="musics/Okiki.mp3" type="audio/mpeg">
+          </audio>
+          <div class="custom-controls">
+            <button onclick="playPreview('audio7')">▶ Play</button>
+            <button onclick="pauseAudio('audio7')">⏸ Pause</button>
+          </div>
+          <input type="email" id="email7" placeholder="Enter your email" required />
+          <button class="buy-btn" onclick="payWithPaystack7()">Buy & Download</button>
+        </div>
+  <!-- Song 8 -->
+        <div class="music-item animate">
+          <img src="images/segun live.jpg" alt="Mo Fi Ogo">
+          <h3>Segun Abon Live On Stage</h3>
+          <audio id="audio8">
+            <source src="musics/Segun Abon 2024  A.mp3" type="audio/mpeg">
+          </audio>
+          <div class="custom-controls">
+            <button onclick="playPreview('audio8')">▶ Play</button>
+            <button onclick="pauseAudio('audio8')">⏸ Pause</button>
+          </div>
+          <input type="email" id="email4" placeholder="Enter your email" required />
+          <button class="buy-btn" onclick="payWithPaystack8()">Buy & Download</button>
+        </div>
+
+
+      </div>
+    </main>
+  </div>
+
+  <footer class="footer">
+    <p>&copy; 2025 Segun Abon. All rights reserved.</p>
+    <div class="socials">
+      <a href="#">Facebook</a> |
+      <a href="#">YouTube</a> |
+      <a href="#">Instagram</a> |
+      <a href="#">WhatsApp</a>
+    </div>
+  </footer>
+
+  <script>
+    function toggleMenu() {
+      const nav = document.getElementById("nav-links");
+      nav.classList.toggle("show");
+    }
+
+    function playPreview(id) {
+      const audio = document.getElementById(id);
+      audio.currentTime = 0;
+      audio.play();
+      setTimeout(() => {
+        audio.pause();
+        audio.currentTime = 0;
+      }, 10000); // 10 seconds preview
+    }
+
+    function pauseAudio(id) {
+      document.getElementById(id).pause();
+    }
+  </script>
+
+  <script>
+    function payWithPaystack1() {
+      const email = document.getElementById("email1").value;
+      if (!email) return alert("Please enter your email.");
+      PaystackPop.setup({
+        key: 'pk_live_b82f765b3f8144c254ae10258b6b6603354bb2bf',
+        email: email,
+        amount: 1000 * 100,
+        currency: 'NGN',
+        callback: function() {
+          window.location.href = "https://drive.google.com/uc?export=download&id=1n42MgG91nApKuR07W6Ja0XhiMqWZukdE";
+        },
+      }).openIframe();
+    }
+
+    function payWithPaystack2() {
+      const email = document.getElementById("email2").value;
+      if (!email) return alert("Please enter your email.");
+      PaystackPop.setup({
+        key: 'pk_live_b82f765b3f8144c254ae10258b6b6603354bb2bf',
+        email: email,
+        amount: 1000 * 100,
+        currency: 'NGN',
+        callback: function() {
+          window.location.href = "https://drive.google.com/uc?export=download&id=1Jo5lffSsbjSgxmsFOqt3LvEjP16JwLs2";
+        },
+      }).openIframe();
+    }
+
+    function payWithPaystack3() {
+      const email = document.getElementById("email3").value;
+      if (!email) return alert("Please enter your email.");
+      PaystackPop.setup({
+        key: 'pk_live_b82f765b3f8144c254ae10258b6b6603354bb2bf',
+        email: email,
+        amount: 1000 * 100,
+        currency: 'NGN',
+        callback: function() {
+          window.location.href = "https://drive.google.com/uc?export=download&id=1DfJERQgoArPSgfG3HIu0bf4URt1AsuH2";
+        },
+      }).openIframe();
+    }
+
+
+
+    function payWithPaystack4() {
+      const email = document.getElementById("email4").value;
+      if (!email) return alert("Please enter your email.");
+      PaystackPop.setup({
+        key: 'pk_live_b82f765b3f8144c254ae10258b6b6603354bb2bf',
+        email: email,
+        amount: 1000 * 100,
+        currency: 'NGN',
+        callback: function() {
+          window.location.href = "https://drive.google.com/uc?export=download&id=1JIabb5NKDXfOcvxJUrHS-AtAUgqVb0o0";
+        },
+      }).openIframe();
+    }
+
+
+    function payWithPaystack5() {
+      const email = document.getElementById("email5").value;
+      if (!email) return alert("Please enter your email.");
+      PaystackPop.setup({
+        key: 'pk_live_b82f765b3f8144c254ae10258b6b6603354bb2bf',
+        email: email,
+        amount: 1000 * 100,
+        currency: 'NGN',
+        callback: function() {
+          window.location.href = "https://drive.google.com/uc?export=download&id=1273CjEqzK2RQtmCpvdur3F3IqHAiTjdI";
+        },
+      }).openIframe();
+    }
+
+    function payWithPaystack6() {
+      const email = document.getElementById("email6").value;
+      if (!email) return alert("Please enter your email.");
+      PaystackPop.setup({
+        key: 'pk_live_b82f765b3f8144c254ae10258b6b6603354bb2bf',
+        email: email,
+        amount: 1000 * 100,
+        currency: 'NGN',
+        callback: function() {
+          window.location.href = "https://drive.google.com/uc?export=download&id=1uCtQ6-YF-aYMsDcn-vqPIKfw3KJYtlof";
+        },
+      }).openIframe();
+    }
+
+    function payWithPaystack7() {
+      const email = document.getElementById("email7").value;
+      if (!email) return alert("Please enter your email.");
+      PaystackPop.setup({
+        key: 'pk_live_b82f765b3f8144c254ae10258b6b6603354bb2bf',
+        email: email,
+        amount: 1000 * 100,
+        currency: 'NGN',
+        callback: function() {
+          window.location.href = "https://drive.google.com/uc?export=download&id=160145QZAARUeDrtnrrENzhV98Zo52Xu_";
+        },
+      }).openIframe();
+    }
+
+  function payWithPaystack8() {
+      const email = document.getElementById("email8").value;
+      if (!email) return alert("Please enter your email.");
+      PaystackPop.setup({
+        key: 'pk_live_b82f765b3f8144c254ae10258b6b6603354bb2bf',
+        email: email,
+        amount: 1000 * 100,
+        currency: 'NGN',
+        callback: function() {
+          window.location.href = "https://drive.google.com/uc?export=download&id=1pui9nuW6CMe-RSn2HQ02pSRXL14Bi90H";
+        },
+      }).openIframe();
+    }
+
+
+
+
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,307 @@
+/* ================= Header & Nav (unchanged from finalized styles) ================= */
+header {
+  background: #1b1b2f;
+  color: white;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  position: sticky;
+  top: 0;
+  z-index: 999;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+nav ul {
+  display: flex;
+  list-style: none;
+  gap: 20px;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+nav a:hover {
+  color: #ffcc00;
+}
+
+.menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 28px;
+  color: white;
+  cursor: pointer;
+}
+
+/* Responsive Nav */
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+  }
+
+  nav ul {
+    display: none;
+    flex-direction: column;
+    background: #004080;
+    position: absolute;
+    top: 60px;
+    right: 0;
+    width: 200px;
+    padding: 10px 0;
+    border-radius: 4px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.3);
+  }
+
+  nav ul.show {
+    display: flex;
+  }
+
+  nav li {
+    text-align: center;
+    padding: 10px 0;
+    margin: 0;
+  }
+}
+
+/* ================= Body & Page Wrapper ================= */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f4f8f6;
+  color: #1d2b36;
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
+}
+
+.page-wrapper {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ================= Main Content Area ================= */
+.about-main {
+  max-width: 900px;
+  margin: 3rem auto 4rem;
+  padding: 2.5rem 2rem;
+  background: #e9f2fa; /* soft light blue */
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0, 64, 128, 0.1);
+  font-size: 1.125rem;
+  color: #203040;
+}
+
+/* Sections */
+.section {
+  background-color: #ffffff;
+  border-left: 6px solid #004080; /* strong navy accent */
+  padding: 2rem 2.5rem;
+  margin-bottom: 2.5rem;
+  border-radius: 10px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.06);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.section:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 14px 30px rgba(0, 64, 128, 0.15);
+}
+
+/* Headings */
+.section h1, 
+.section h2 {
+  color: #003366;
+  margin-bottom: 1rem;
+  font-weight: 700;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.section h1 {
+  font-size: 2.5rem;
+  border-bottom: 3px solid #ffd700; /* gold underline */
+  padding-bottom: 0.5rem;
+}
+
+.section h2 {
+  font-size: 1.75rem;
+  color: #00509e;
+  margin-top: 0;
+}
+
+/* Paragraphs */
+.section p {
+  font-size: 1.125rem;
+  line-height: 1.8;
+  color: #2a3b50;
+  margin-bottom: 1rem;
+}
+
+/* ================= Footer ================= */
+.footer {
+  background: #1b1b2f;
+  color: white;
+  padding: 1.5rem 2rem;
+  text-align: center;
+  font-size: 0.9rem;
+  letter-spacing: 0.03em;
+}
+
+.footer a {
+  color: #ffcc00;
+  text-decoration: none;
+  margin: 0 0.5rem;
+  transition: color 0.3s ease;
+}
+
+.footer a:hover {
+  color: #ffd633;
+}
+
+/* ================= Animations ================= */
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes zoomIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.animate-fade {
+  animation: fadeInUp 1s ease-out forwards;
+  opacity: 0;
+}
+
+.animate-left {
+  animation: slideInLeft 1s ease-out forwards;
+  opacity: 0;
+}
+
+.animate-zoom {
+  animation: zoomIn 1s ease-out forwards;
+  opacity: 0;
+}
+
+.delay-1 { animation-delay: 0.3s; }
+.delay-2 { animation-delay: 0.6s; }
+.delay-3 { animation-delay: 0.9s; }
+
+/* ================= Responsive ================= */
+@media (max-width: 768px) {
+  .about-main {
+    margin: 2rem 1rem 3rem;
+    padding: 1.5rem 1.5rem;
+  }
+
+  .section {
+    padding: 1.5rem 1.5rem;
+  }
+
+  .section h1 {
+    font-size: 2rem;
+  }
+
+  .section h2 {
+    font-size: 1.4rem;
+  }
+
+  .section p {
+    font-size: 1rem;
+  }
+}
+@media (max-width: 768px) {
+  nav ul {
+    display: none;
+    flex-direction: column;
+    background: #0b1234;
+    position: absolute;
+    top: 60px;
+    right: 0;
+    width: 200px;
+    padding: 10px 0;
+    border-radius: 4px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.3);
+  }
+
+  nav ul.show {
+    display: flex;
+  }
+
+  nav li {
+    text-align: center;
+    padding: 10px 0;
+    margin: 0;
+  }
+
+  nav a {
+    display: inline-block;    /* <-- changed from block */
+    padding: 8px 16px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+
+  /* Highlight only behind text, not full width */
+  nav a:hover,
+  nav a:focus {
+    background-color: #ffcc00;
+    color: #004080;
+    outline: none;
+  }
+}
+  html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.page-wrapper {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex-grow: 1;  /* Makes main expand to fill space */
+}
+
+/* Footer stays at bottom because main grows */
+.footer {
+  background: #1b1b2f;
+  color: white;
+  padding: 1.5rem 2rem;
+  text-align: center;
+  flex-shrink: 0; /* prevent footer from shrinking */
+}

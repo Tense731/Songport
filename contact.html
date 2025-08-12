@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact - Segun Abon</title>
+  <link rel="stylesheet" href="contact.css" />
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="header">
+    <div class="logo">Segun Abon</div>
+    <nav>
+      <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+      <ul id="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="music.html">Music Store</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html" class="active">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Main Content -->
+  <main class="contact-container">
+  <section class="contact-intro">
+    <h1>Get in Touch</h1>
+    <p>For gospel ministration, bookings, and other inquiries, feel free to reach out. We’d love to hear from you!</p>
+  </section>
+
+  <section class="contact-cards">
+    <div class="contact-card">
+
+      <h3>Phone</h3>
+      <p>+234 803 123 4567</p>
+    </div>
+    <div class="contact-card">
+      
+      <h3>Email</h3>
+      <p>segunabonmusic@gmail.com</p>
+    </div>
+    <div class="contact-card">
+
+      <h3>Bookings</h3>
+      <p>We are available for gospel events and worship ministrations.</p>
+    </div>
+  </section>
+
+  <section class="contact-form">
+<form id="contact-form">
+  <input type="text" name="from_name" placeholder="Your Name" required />
+  <input type="email" name="from_email" placeholder="Your Email" required />
+  <input type="text" name="subject" placeholder="Subject" required />
+  <textarea name="message" placeholder="Your Message" required></textarea>
+  <button type="submit">Send Message</button>
+</form>
+
+
+  </section>
+
+  <section class="map-section">
+    <h2>Our Location</h2>
+    <div class="map-container">
+      <iframe 
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3973.538289392307!2d3.3792050759511426!3d6.52437972349082!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x103b8ce1681a0a6f%3A0x419f1a2fc42e2b68!2sLagos%20Island!5e0!3m2!1sen!2sng!4v1691250797082!5m2!1sen!2sng"
+        width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade">
+      </iframe>
+    </div>
+  </section>
+</main>
+
+
+
+<script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+<script>
+  (function () {
+    emailjs.init("of9hxIZ--_6QGd4bQ"); // Replace with your actual EmailJS user ID
+  })();
+
+  document.getElementById("contact-form").addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    emailjs.sendForm("service_prsbqqe", "template_kxxbviw", this)
+      .then(function () {
+        alert("Message sent successfully!");
+      }, function (error) {
+        alert("Failed to send message: " + error);
+      });
+
+    this.reset(); // Optional: reset form after submission
+  });
+</script>
+
+
+<script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.5.0/firebase-app.js";
+  import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/10.5.0/firebase-firestore.js";
+
+const firebaseConfig = {
+  apiKey: "AIzaSyDeRzQ3Nkx_5gzz2Xsrk_rW25y6vClSkN0",
+  authDomain: "musicport-d559c.firebaseapp.com",
+  projectId: "musicport-d559c",
+  storageBucket: "musicport-d559c.appspot.com", // FIXED HERE
+  messagingSenderId: "415790664758",
+  appId: "1:415790664758:web:af59510da0cf6a877ddc97",
+  measurementId: "G-EK9P32EDPZ"
+};
+
+
+  const app = initializeApp(firebaseConfig);
+  const db = getFirestore(app);
+
+  document.querySelector("form").addEventListener("submit", async (e) => {
+    e.preventDefault();
+
+    const name = e.target[0].value;
+    const email = e.target[1].value;
+    const subject = e.target[2].value;
+    const message = e.target[3].value;
+
+    try {
+      await addDoc(collection(db, "contactMessages"), {
+        name,
+        email,
+        subject,
+        message,
+        timestamp: new Date()
+      });
+
+      alert("Message sent successfully!");
+      e.target.reset();
+    } catch (error) {
+      console.error("Error:", error);
+      alert("Something went wrong. Try again.");
+    }
+  });
+</script>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p>&copy; 2025 Segun Abon. All rights reserved.</p>
+    <div class="socials">
+      <a href="#">Facebook</a> |
+      <a href="#">YouTube</a> |
+      <a href="#">Instagram</a> |
+      <a href="#">WhatsApp</a>
+    </div>
+  </footer>
+
+  <script>
+    function toggleMenu() {
+      const nav = document.getElementById("nav-links");
+      nav.classList.toggle("show");
+    }
+  </script>
+</body>
+</html>

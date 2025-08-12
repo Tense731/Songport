@@ -1,0 +1,377 @@
+/* General Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background: #f0f4ff;
+  color: #333;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* Header */
+.header {
+  background: #1b1b2f;
+  color: white;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+nav ul {
+  display: flex;
+  gap: 1rem;
+  list-style: none;
+}
+nav a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+nav a.active {
+  border-bottom: 2px solid #ffcc00;
+}
+.menu-toggle {
+  display: none;
+  font-size: 28px;
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+}
+
+/* Main Section */
+.contact-container {
+  flex: 1;
+  padding: 2rem;
+  max-width: 700px;
+  margin: auto;
+}
+.contact-intro {
+  text-align: center;
+  margin-bottom: 2rem;
+  animation: fadeInDown 1s ease;
+}
+.contact-intro h1 {
+  font-size: 2rem;
+  color: #004080;
+}
+.contact-intro p {
+  margin-top: 1rem;
+  font-size: 1.1rem;
+}
+
+.contact-form form {
+  background: white;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.05);
+  animation: fadeInUp 1.2s ease;
+}
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 0.8rem;
+  margin-bottom: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+.contact-form textarea {
+  height: 120px;
+  resize: vertical;
+}
+.contact-form button {
+  background: #1b1b2f;
+  color: white;
+  padding: 0.8rem 1.5rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background 0.3s;
+}
+.contact-form button:hover {
+  background: #1b1b2f;
+}
+
+/* Footer */
+.footer {
+  background: #1b1b2f;
+  color: white;
+  text-align: center;
+  padding: 1rem;
+  margin-top: auto;
+  position: sticky;
+  bottom: 0;
+}
+.footer a {
+  color: #ffcc00;
+  text-decoration: none;
+  margin: 0 5px;
+}
+
+/* Animations */
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+  }
+
+  nav ul {
+    display: none;
+    flex-direction: column;
+    background: #1b1b2f;
+    position: absolute;
+    right: 1rem;
+    top: 60px;
+    width: 200px;
+    padding: 10px 0;
+    border-radius: 6px;
+  }
+
+  nav ul.show {
+    display: flex;
+  }
+
+  nav li {
+    text-align: center;
+    padding: 10px 0;
+  }
+}
+/* Map Section */
+.map-section {
+  margin-top: 2rem;
+  animation: fadeInUp 1.2s ease;
+  text-align: center;
+}
+.map-section h2 {
+  color: #1b1b2f;
+  margin-bottom: 1rem;
+}
+.map-container {
+  width: 100%;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.contact-details {
+  display: flex;
+  justify-content: center;
+  gap: 4rem;
+  flex-wrap: wrap;
+  padding: 2rem 0;
+  animation: fadeInUp 1.3s ease;
+  text-align: center;
+}
+
+.detail-box {
+  background-color: #e6f0ff;
+  border-radius: 8px;
+  padding: 1.5rem;
+  min-width: 250px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.detail-box h3 {
+  color: #1b1b2f;
+  margin-bottom: 0.5rem;
+}
+/* Intro */
+.contact-intro {
+  text-align: center;
+  padding: 3rem 1rem 2rem;
+  background: linear-gradient(to right, #e6f0ff, #f0f8ff);
+  color: #1b1b2f;
+  animation: fadeInDown 1.2s ease;
+}
+
+.contact-intro h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+/* Cards */
+.contact-cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+  padding: 2rem 1rem;
+}
+
+.contact-card {
+  background: white;
+  border-radius: 10px;
+  padding: 1.5rem;
+  width: 280px;
+  text-align: center;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+  transition: transform 0.3s ease;
+}
+
+.contact-card:hover {
+  transform: translateY(-5px);
+}
+
+.contact-card img {
+  width: 40px;
+  margin-bottom: 1rem;
+}
+
+.contact-card h3 {
+  color: #1b1b2f;
+  margin-bottom: 0.5rem;
+}
+
+/* Form */
+.contact-form {
+  padding: 2rem 1rem;
+  background: #f9fcff;
+}
+
+.contact-form form {
+  max-width: 600px;
+  margin: auto;
+  display: grid;
+  gap: 1rem;
+}
+
+.contact-form input,
+.contact-form textarea {
+  padding: 0.9rem;
+  border: 1px solid #ccddee;
+  border-radius: 8px;
+  font-size: 1rem;
+  outline: none;
+}
+
+.contact-form textarea {
+  height: 150px;
+  resize: vertical;
+}
+
+.contact-form button {
+  background-color: #1b1b2f;
+  color: white;
+  padding: 0.9rem;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.contact-form button:hover {
+  background-color: #1b1b2f;
+}
+
+/* Map */
+.map-section {
+  padding: 2rem 1rem;
+  text-align: center;
+}
+
+.map-section h2 {
+  color: #004080;
+  margin-bottom: 1rem;
+}
+
+.map-container {
+  max-width: 900px;
+  margin: auto;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .contact-card {
+    width: 90%;
+  }
+
+  .contact-form form {
+    width: 100%;
+  }
+}
+
+/* Animation */
+@keyframes fadeInDown {
+  from { opacity: 0; transform: translateY(-30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@media (max-width: 768px) {
+  nav ul {
+    display: none;
+    flex-direction: column;
+    background: #1b1b2f;
+    position: absolute;
+    right: 1rem;
+    top: 60px;
+    width: 200px;
+    padding: 10px 0;
+    border-radius: 6px;
+  }
+
+  nav ul.show {
+    display: flex;
+  }
+
+  nav li {
+    text-align: center;
+    padding: 10px 0;
+    margin: 0;
+  }
+
+  nav li a {
+    display: inline-block;  /* Make width only as wide as text */
+    padding: 5px 15px;      /* Add some horizontal padding */
+  }
+
+  /* Highlight background on tap/focus/hover */
+  nav li a:active,
+  nav li a:focus,
+  nav li a:focus-visible,
+  nav li a:hover {
+    background-color: #ffcc00;
+    color: #1b1b2f;
+    border-radius: 4px;
+    text-decoration: none; /* Remove underline on hover/focus */
+  }
+
+  /* Remove underline on the active contact link */
+  nav a.active {
+    border-bottom: none !important;
+    text-decoration: none !important;
+    color: #ffcc00;
+  }
+}
